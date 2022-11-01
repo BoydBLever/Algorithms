@@ -70,6 +70,7 @@ const expected3 = "test a is This";
 
 function reverseWordOrder(wordsStr) {
     let words = wordsStr.split(" ");
+    console.log(words);
     let revWords = [];
     for(let i=words.length-1;i>=0;i--){
         if(words[i] != ''){
