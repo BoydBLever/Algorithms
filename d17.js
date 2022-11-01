@@ -69,13 +69,15 @@ const expected3 = "test a is This";
  */
 
 function reverseWordOrder(wordsStr) {
-    let words = wordsStr.split(" ")
-    let revWords = []
+    let words = wordsStr.split(" ");
+    let revWords = [];
     for(let i=words.length-1;i>=0;i--){
         if(words[i] != ''){
-            revWords.push(words[i])
+            revWords.push(words[i]);
         }
     }
-    return revWords.join(" ")
+    return revWords.join(" ");
 }
-console.log(reverseWordOrder(str3))
+console.log(reverseWordOrder(str1));
+console.log(reverseWordOrder(str2));
+console.log(reverseWordOrder(str3));
