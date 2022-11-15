@@ -32,7 +32,14 @@ const expected3 = 1;
  *    floor decimals.
  * @returns {number} The result of !n.
  */
-function factorial(n) {}
+function factorial(n, product=1) {
+    if(n <= 0 ) {
+        return product;
+    }
+    product = n*product;
+    n--;
+    return factorial(n, product);
+}
 
 /*****************************************************************************/
 /* 
