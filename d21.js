@@ -1,5 +1,5 @@
 //November 15, 2022
-/* 
+//A function is equal to what it returns.
   Recursive Factorial
   Input: integer
   Output: integer, product of ints from 1 up to given integer
