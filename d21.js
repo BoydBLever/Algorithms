@@ -32,6 +32,7 @@ const expected3 = 1;
  *    floor decimals.
  * @returns {number} The result of !n.
  */
+//Milo's Solution
 function factorial(n, product=1) {
     if(n <= 0 ) {
         return product;
@@ -75,6 +76,24 @@ const expected6 = 21;
  * @param {number} num The position of the desired number in the fibonacci sequence.
  * @returns {number} The fibonacci number at the given position.
  */
-function fibonacci(num) {}
-
+//Alexis's Solution
+function fibonacci(num) {
+// sum = 0;
+if (num > 1) {
+    sum = fibonacci(num-2) + fibonacci(num-1)
+}
+if (num == 0){
+    sum = 0
+}
+if (num == 1){
+    sum = 1;
+}
+return sum
+}
+console.log(fibonacci(num1));
+console.log(fibonacci(num2));
+console.log(fibonacci(num3));
+console.log(fibonacci(num4));
+console.log(fibonacci(num5));
+console.log(fibonacci(num6));
 /*****************************************************************************/
