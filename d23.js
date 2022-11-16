@@ -1,5 +1,6 @@
 /* 
-  Given an int to represent how much change is needed
+  November 10, 2022
+Given an int to represent how much change is needed
   calculate the fewest number of coins needed to create that change,
   using the standard US denominations
 */

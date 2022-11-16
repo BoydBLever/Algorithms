@@ -1,5 +1,6 @@
 /* 
-  Array: Binary Search (non recursive)
+//November 8, 2022
+Array: Binary Search (non recursive)
   Given a sorted array and a value, return whether the array contains that value.
   Do not sequentially iterate the array. Instead, ‘divide and conquer’,
   taking advantage of the fact that the array is sorted .
