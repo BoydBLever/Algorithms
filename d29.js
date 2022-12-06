@@ -44,10 +44,10 @@ class BinarySearchTree {
                 return true;
             }
             else if (searchVal < current.data) {
-                current = this.left;
+                current = current.left;
             }
             else {
-                current = this.right;
+                current = current.right;
             }
         }
         return false;
