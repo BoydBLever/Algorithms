@@ -50,7 +50,7 @@ class BinarySearchTree {
                 current = current.right;
             }
         }
-        return false;
+        return false; //outside the while loop
     }
 
 
