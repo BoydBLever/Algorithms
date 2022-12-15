@@ -63,17 +63,31 @@ class DoublyLinkedList {
      * - Space: O(?).
      * @returns {any} The data of the removed node.
      */
-    removeMiddleNode() {
-        let left = this.head;
-        let right = this.tail;
-        while (left.data != right.data) {
-            left = left.next;
-            right = right.previous;
-            if (left.data === right.data) {
+    // removeMiddleNode() {
+    //     let left = this.head;
+    //     let right = this.tail;
+    //     while (left.data != right.data) {
+    //         left = left.next;
+    //         right = right.previous;
+    //         if (left.data === right.data) {
 
-            }
-        }
+    //         }
+    //     }
+    // }
+// Heidi's solution 
+removeMiddleNode(){
+  var length = this.toArray().length;
+  var midPoint = Math.floor(length/2);
+  var count = 0;
+  var runner = this.head;
+
+  if (length >=2){
+    while (count < midPoint){
+      runner = runner.next;
+      count++
     }
+  }
+}
 
     /**
      * Determines if this list is empty.
