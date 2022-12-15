@@ -69,8 +69,10 @@ class DoublyLinkedList {
         while (left.data != right.data) {
             left = left.next;
             right = right.previous;
-        }
+            if (left.data === right.data) {
 
+            }
+        }
     }
 
     /**
