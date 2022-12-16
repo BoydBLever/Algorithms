@@ -163,7 +163,6 @@ class DoublyLinkedList {
         runner.next = runner.next.next;
         runner.next.prev = runner.prev;
     }
-
 }
 const list1 = new DoublyLinkedList();
 list1.insertAtBackMany([5, 7, 1, 4, 7])
