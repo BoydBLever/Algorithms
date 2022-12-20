@@ -95,6 +95,20 @@ class Queue {
    * @returns {Boolean } 
    */
     contains(targetVal) {
+        var q2 = new Queue();
+        var foundVal = false;
+
+        while (this.front) {
+            if (this.front.data == targetVal) {
+                foundVal = true;
+            }
+            q2.enqueue(this.dequeue());
+        }
+
+        while (q2.front) {
+            this.enqueue(q2.dequeue());
+        }
+        return foundVal;
     }
 
     printQueue() { //for learning puspose
