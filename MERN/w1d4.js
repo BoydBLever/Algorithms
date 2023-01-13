@@ -9,7 +9,6 @@
 //bonus: return the index where the value at 0 ends up
 //[5,4,9,2,5,3] -> [4,2,3,5,9,5], return 3
 const partition = (arr) => {
-    //your code here
     let pivi = 0;
     for(var i = 1; i < arr.length; i++){
         if (arr[i] < arr[pivi]){
