@@ -1,6 +1,3 @@
-//m is arr1 length
-//n is arr2 length
-
 function Union(arr1, arr2, m, n) {
     let i = 0, j = 0;
     while (i < m && j < n) {
