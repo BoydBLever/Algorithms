@@ -12,9 +12,6 @@ function returnSortedWithoutIntersection(arr1, arr2, m, n) {
         }
     }
     
-    /* Print remaining elements of
-    the larger array */
-    
     while (i < m)
     console.log(arr1[i++] + " ");
     while (j < n)
