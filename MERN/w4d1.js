@@ -53,7 +53,6 @@ function canStringBecomePalindrome(str) {
         }
     }
 
-
     if (count > 1) {
         return false;
     }
@@ -111,4 +110,21 @@ const expected3 = [];
  * @callback cb A callback function that expects to receive an array element.
  * @returns {Array<any>} The given array with only the remaining items.
  */
-function dropIt(arr, cb) { }
+function dropIt(arr, cb) {
+    let outArr = arr;
+    for (i = 0; i < arr.length; i++){
+        // console.log (cb(arr[i]));
+        if (cb(arr[i]) === true){
+            return outArr;
+        }
+        else{
+            outArr = outArr.slice(1);
+        }
+    }
+
+    return outArr;
+}
+
+console.log(dropIt(nums1, callback1));
+console.log(dropIt(nums2, callback2));
+console.log(dropIt(nums3, callback3));
