@@ -1,4 +1,3 @@
-//per chatGPT
 // The median of two sorted arrays can be found by merging the arrays into a single sorted array and then finding the middle element(s). Here's the algorithm to find the median of two sorted arrays:
 
 // Create two pointers, p1 and p2, and initialize them to the start of the two arrays, nums1 and nums2, respectively.
