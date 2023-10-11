@@ -22,3 +22,37 @@ class Solution:
 # Testing the function again
 solution = Solution()
 solution.isAnagram("anagram", "nagaram")
+#Hashmap-based solution
+# class Solution:
+#     def isAnagram(self, s: str, t: str) -> bool:
+#         # 1. If lengths of s and t are different, return False.
+#         if len(s) != len(t):
+#             return False
+        
+#         # 2. Create an empty dictionary called char_freq.
+#         char_freq = {}
+        
+#         # 3. For each character in s, increment its frequency in char_freq.
+#         for char in s:
+#             char_freq[char] = char_freq.get(char, 0) + 1
+        
+#         # 4. For each character in t:
+#         for char in t:
+#             # If character not in char_freq or its frequency is zero, return False.
+#             if char_freq.get(char, 0) == 0:
+#                 return False
+#             # Decrement its frequency in char_freq.
+#             char_freq[char] -= 1
+        
+#         # 5. Return True.
+#         return True
+
+# # Redefining the test cases for the anagram problem
+# test_cases_anagram = [
+#     ("anagram", "nagaram", True),
+#     ("rat", "car", False)
+# ]
+
+# # Testing the hashmap-based solution
+# test_results_hashmap = [(test[0], test[1], solution.isAnagram(test[0], test[1]), test[2]) for test in test_cases_anagram]
+# test_results_hashmap
