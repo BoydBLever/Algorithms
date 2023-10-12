@@ -38,3 +38,30 @@ class Solution:
         
         # If no repetitions are found, the board is valid
         return True
+    # NeetCode solution
+    # class Solution:
+    # def isValidSudoku(self, board: 'List[List[str]]') -> bool:
+    #     # Pseudocode:
+    #     # 1. Create dictionaries with sets for rows, columns, and 3x3 boxes.
+    #     # 2. Iterate over the board.
+    #     # 3. For each cell, check if the number is already in the corresponding row, column, or 3x3 box set.
+    #     # 4. If yes, return False since it's a repetition.
+    #     # 5. Otherwise, add the number to the appropriate set(s).
+    #     # 6. Return True at the end if no repetitions are found
+        
+    #     cols = collections.defaultdict(set)
+    #     rows = collections.defaultdict(set)
+    #     squares = collections.defaultdict(set)
+        
+    #     for r in range(9):
+    #         for c in range(9):
+    #             if board[r][c] != '.':
+    #                 if (board[r][c] in rows[r] or 
+    #                     board[r][c] in cols[c] or 
+    #                     board[r][c] in squares[(r // 3, c // 3)]):
+    #                     return False
+    #                 cols[c].add(board[r][c])
+    #                 rows[r].add(board[r][c])
+    #                 squares[(r // 3, c // 3)].add(board[r][c])
+        
+    #     return True
