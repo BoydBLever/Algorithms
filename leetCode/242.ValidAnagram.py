@@ -56,3 +56,20 @@ solution.isAnagram("anagram", "nagaram")
 # # Testing the hashmap-based solution
 # test_results_hashmap = [(test[0], test[1], solution.isAnagram(test[0], test[1]), test[2]) for test in test_cases_anagram]
 # test_results_hashmap
+
+# NeetCode solution using hashmap
+# class Solution:
+#     def isAnagram(self, s:str, t:str) -> bool:
+#     if len(s) != len(t):
+#         return False
+    
+#     countS, countT = {}, {}
+
+#     for i in range(len(s)):
+#         countS[s[i]] = 1 + countS.get(s[i], 0)
+#         countT[t[i]] = 1 + countT.get(t[i], 0)
+#     for c in countS:
+#         if countS[c] != countT.get(c, 0):
+#             return False
+    
+#     return True
