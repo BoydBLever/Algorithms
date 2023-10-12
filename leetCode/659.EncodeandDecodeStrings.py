@@ -38,3 +38,13 @@ def decode(self, str):
     
     # Return the decoded list of strings
     return res
+
+# class Solution:
+
+#     def encode(self, strs):
+#         """Encodes a list of strings to a single string."""
+#         return "\0".join(strs)
+    
+#     def decode(self, s):
+#         """Decodes a single string to a list of strings."""
+#         return s.split("\0")
