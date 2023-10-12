@@ -1,4 +1,6 @@
 # https://leetcode.com/problems/longest-consecutive-sequence/
+from typing import List
+
 class Solution:
     def longestConsecutive(self, nums):
         # Convert the list of numbers to a set for O(1) lookup
@@ -25,3 +27,17 @@ class Solution:
         
         # Return the longest consecutive sequence length
         return longest_sequence
+    
+    #NeetCode solution
+    # def longestConsecutive(self, nums: List[int]) -> int:
+    #     numSet = set(nums)
+    #     longest = 0
+
+    #     for n in nums:
+    #         #check if its the start of a sequence
+    #         if (n - 1) not in numSet:
+    #             length = 0
+    #             while (n + length) in numSet:
+    #                 length += 1
+    #             longest = max(length, longest)
+    #     return longest
