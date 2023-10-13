@@ -31,3 +31,21 @@ class Solution:
         
         # 8. The result of the expression is on top of the stack.
         return stack[0]
+    
+#Neetcode
+# class Solution:
+#     def evalRPN(self, tokens: List[str]) -> int:
+#         stack = []
+#         for c in tokens:
+#             if c == "+":
+#                 stack.append(stack.pop() + stack.pop())
+#             elif == "-":
+#                 a, b = stack.pop(), stack.pop()
+#                 stack.append(b - a)
+#             elif == "*":
+#                 stack.append(stack.pop() * stack.pop())
+#             elif == "/":
+#                 stack.append(int(b / a))
+#             else:
+#                 stack.append(int(c))
+#         return stack[0]
