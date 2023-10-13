@@ -32,7 +32,7 @@ class Solution:
         # 8. The result of the expression is on top of the stack.
         return stack[0]
     
-#Neetcode
+#Neetcode solution
 # class Solution:
 #     def evalRPN(self, tokens: List[str]) -> int:
 #         stack = []
