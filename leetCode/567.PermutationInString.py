@@ -1,4 +1,6 @@
 # https://leetcode.com/problems/permutation-in-string/
+from collections import defaultdict
+
 class Solution:
     def checkInclusion(self, s1: str, s2: str) -> bool:
         # Step 1: Initialize variables
