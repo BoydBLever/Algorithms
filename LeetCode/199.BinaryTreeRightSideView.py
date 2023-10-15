@@ -1,4 +1,3 @@
-# https://leetcode.com/problems/binary-tree-level-order-traversal/
 # Neetcode solution
 # Definition for a binary tree node.
 # class TreeNode:
@@ -7,23 +6,21 @@
 #         self.left = left
 #         self.right = right
 class Solution:
-    def levelOrder(self, root: Optional[TreeNode]) -> List[List[int]]:
-        #BFS, need a queue
+    def rightSideView(self, root: Optional[TreeNode]) -> List[int]:
+        #BFS, with a queue data structure
         res = []
-
-        q = collections.deque()
-        q.append(root)
+        q = collections.deque([root])
 
         while q:
+            rightSide = None
             qLen = len(q)
-            level = []
+
             for i in range(qLen):
                 node = q.popleft()
                 if node:
-                    level.append(node.val)
+                    rightSide = node
                     q.append(node.left)
                     q.append(node.right)
-            if level:
-                res.append(level)
-        
+            if rightSide:
+                res.append(rightSide.val)
         return res
