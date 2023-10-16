@@ -1,5 +1,7 @@
 # https://leetcode.com/problems/task-scheduler/
 # Neetcode solution
+from typing import List, Counter, heapq
+
 class Solution:
     def leastInterval(self, tasks: List[str], n: int) -> int:
         count = Counter(tasks)
