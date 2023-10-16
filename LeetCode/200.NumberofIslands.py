@@ -1,5 +1,7 @@
 # Modified neetcode solution
 # https://leetcode.com/problems/number-of-islands/
+from typing import collections, List
+
 class Solution:
     def numIslands(self, grid: List[List[str]]) -> int:
         if not grid:
