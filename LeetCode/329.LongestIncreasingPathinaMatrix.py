@@ -1,5 +1,7 @@
 # https://leetcode.com/problems/longest-increasing-path-in-a-matrix/
 # NeetCode solution
+from typing import List
+
 class Solution:
     def longestIncreasingPath(self, matrix: List[List[int]]) -> int:
         # Dimensions of the matrix, and put it in static variables, we are running DFS so we need to know these dimensions.
