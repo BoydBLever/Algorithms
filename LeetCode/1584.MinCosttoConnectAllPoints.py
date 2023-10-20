@@ -1,5 +1,7 @@
 # https://leetcode.com/problems/min-cost-to-connect-all-points/
 # NeetCode solution
+from typing import List, heapq
+
 class Solution:
     def minCostConnectPoints(self, points: List[List[int]]) -> int:
         N = len(points)
