@@ -25,6 +25,7 @@ def dfs(grid: List[List[int]], r: int, c: int, visit: Set[Tuple[int, int]]) -> i
     
     return count
 
+# This is the grid.
 grid = [
     [0, 0, 0, 0],
     [1, 1, 0, 0],
