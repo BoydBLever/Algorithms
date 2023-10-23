@@ -1,8 +1,8 @@
 # This code defines a recursive depth-first search (DFS) function to count the unique paths from the top left to the bottom right of a matrix, where movement is only allowed on cells containing a '0' and each cell can only be visited once.
 # Count paths (backtracking)
-from typing import grid
+from typing import List, Set, Tuple
 
-def dfs(grid, r, c, visit):
+def dfs(grid: List[List[int]], r: int, c: int, visit: Set[Tuple[int, int]]) -> int:
     ROWS, COLS = len(grid), len(grid[0])
     
     if (min(r, c) < 0 or
@@ -25,4 +25,13 @@ def dfs(grid, r, c, visit):
     
     return count
 
+grid = [
+    [0, 0, 0, 0],
+    [1, 1, 0, 0],
+    [0, 0, 0, 1],
+    [0, 1, 0, 0]
+]
+
 print(dfs(grid, 0, 0, set()))
+
+# This is a 4x4 matrix where cells containing a 1 represent blocked paths and cells with a 0 are open paths.
