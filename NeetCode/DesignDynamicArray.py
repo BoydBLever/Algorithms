@@ -50,3 +50,39 @@ class DynamicArray:
     def checkIndex(self, i: int) -> None:
         if i < 0 or i >= self.size:
             raise IndexError('Index out of bounds')
+        
+# Testcase processing function
+
+def processTestcase(commands):
+    # Create an instance of the DynamicArray class
+    dynamic_array = DynamicArray(commands[1])
+    output = [None]  # For the constructor call
+
+    # Start iterating from the 2nd command onwards
+    i = 2
+    while i < len(commands):
+        cmd = commands[i]
+        if cmd == "pushback":
+            dynamic_array.pushback(commands[i + 1])
+            output.append(None)
+            i += 2
+        elif cmd == "get":
+            output.append(dynamic_array.get(commands[i + 1]))
+            i += 2
+        elif cmd == "set":
+            dynamic_array.set(commands[i + 1], commands[i + 2])
+            output.append(None)
+            i += 3
+        elif cmd == "getCapacity":
+            output.append(dynamic_array.getCapacity())
+            i += 1
+        elif cmd == "getSize":
+            output.append(dynamic_array.getSize())
+            i += 1
+        elif cmd == "popback":
+            output.append(dynamic_array.popback())
+            i += 1
+    return output
+
+test_case = ["Array", 1, "getSize", "getCapacity", "pushback", 1, "pushback", 2, "pushback", 3, "pushback", 4, "pushback", 5, "pushback", 6, "pushback", 7, "pushback", 8, "pushback", 9, "getSize", "getCapacity", "popback", "popback", "popback", "popback", "popback", "popback", "popback", "popback", "popback", "getSize", "getCapacity"]
+print(processTestcase(test_case))
