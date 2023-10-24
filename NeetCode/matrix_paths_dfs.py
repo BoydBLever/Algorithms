@@ -14,7 +14,7 @@ def dfs(grid: List[List[int]], r: int, c: int, visit: Set[Tuple[int, int]]) -> i
         return 1
 
     visit.add((r, c))
-    
+    # Explore neighbors
     count = 0
     count += dfs(grid, r + 1, c, visit)
     count += dfs(grid, r - 1, c, visit)
@@ -25,7 +25,7 @@ def dfs(grid: List[List[int]], r: int, c: int, visit: Set[Tuple[int, int]]) -> i
     
     return count
 
-# This is the grid.
+# This is the grid. The goal is to count the number of unique paths from the top left to the bottom right.
 grid = [
     [0, 0, 0, 0],
     [1, 1, 0, 0],
