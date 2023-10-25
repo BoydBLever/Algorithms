@@ -1,14 +1,16 @@
 from typing import List
 
+
 class ListNode:
     def __init__(self, val=0, next=None):
         self.val = val
         self.next = next
 
+
 class LinkedList:
-    
+
     def __init__(self):
-        self.head = None 
+        self.head = None
 
     def get(self, index: int) -> int:
         curr = self.head
@@ -17,12 +19,12 @@ class LinkedList:
             curr = curr.next
             i += 1
         return curr.val if curr else -1
-        
+
     def insertHead(self, val: int) -> None:
         new_node = ListNode(val)
         new_node.next = self.head
         self.head = new_node
-        
+
     def insertTail(self, val: int) -> None:
         new_node = ListNode(val)
         if not self.head:
@@ -32,8 +34,14 @@ class LinkedList:
         while curr.next:
             curr = curr.next
         curr.next = new_node
-        
+
     def remove(self, index: int) -> bool:
+        if not self.head:
+            return False
+        if index == 0:
+            self.head = self.head.next
+            return True
+
         curr = self.head
         i = 0
         while curr and i < index - 1:
@@ -51,20 +59,39 @@ class LinkedList:
             values.append(curr.val)
             curr = curr.next
         return values
-    
-    # Test processing function 
-    def process(self, commands: List[str], values: List[int]) -> List[int]:
-        for i, command in enumerate(commands):
-            if command == "get":
-                values[i] = self.get(values[i])
-            elif command == "insertHead":
-                self.insertHead(values[i])
-            elif command == "insertTail":
-                self.insertTail(values[i])
-            elif command == "remove":
-                values[i] = self.remove(values[i])
-        return values
-    # Input ["insertHead", 1, "remove", 0]
-    # Expected Output [None, True]
-    print(process(["insertHead", 1, "remove", 0], [0, 0, 0, 0]))
 
+# Test processing function
+    def process(self, commands_values: List) -> List[int]:
+        results = []
+        i = 0
+        while i < len(commands_values):
+            command = commands_values[i]
+            # Handle commands that don't have values following them
+            if command == "getValues":
+                results.append(self.getValues())
+                i += 1
+                continue
+
+            value = commands_values[i+1]
+
+            if command == "get":
+                results.append(self.get(value))
+
+            elif command == "insertHead":
+                self.insertHead(value)
+                results.append(None)
+            elif command == "insertTail":
+                self.insertTail(value)
+                results.append(None)
+            elif command == "remove":
+                results.append(self.remove(value))
+
+            i += 2
+        return results
+
+
+# Test the LinkedList class
+ll = LinkedList()
+print(ll.process(["insertTail", 1, "insertHead", 2, "insertHead", 3, "insertTail", 4, "getValues"]
+
+                 ))
