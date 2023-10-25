@@ -32,3 +32,26 @@ class Solution:
         head.next = None
         return p
     # Time: O(n) Space: O(n)
+
+    # NeetCode Solutions
+    # iterative T O(n) M O(1)
+    prev, curr = None, head 
+
+    while curr:
+        nxt = curr.next
+        curr.next = prev 
+        prev = curr 
+        curr = nxt 
+    return prev 
+    
+    
+    # recursive T O(n) M O(n)
+    if not head:
+        return None
+    
+    newHead = head 
+    if head.next:
+        newHead = self.reverseList(head.next)
+        head.next.next = head
+        head.next = None
+    return newHead
