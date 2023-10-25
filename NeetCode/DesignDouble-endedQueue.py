@@ -1,4 +1,7 @@
-class Deque:
+from typing import List
+from collections import deque
+
+class MyDeque:
     
     def __init__(self):
         # initialize an empty deque
@@ -33,25 +36,47 @@ class Deque:
 # Time Complexity: O(1) for all operations
 # Space Complexity: O(n) for n operations
 
-def test_deque() -> None:
+def test_deque(operations: list) -> list:
     # create a new deque
-    deque = Deque()
+    my_deque = MyDeque()
     
-    # test isEmpty method
-    assert deque.isEmpty() == True
+    results = []  # List to store results of operations
+    i = 0  # Index to traverse operations list
     
-    # test append method
-    deque.append(1)
-    
-    # test isEmpty method again
-    assert deque.isEmpty() == False
-    
-    # test popleft method
-    assert deque.popleft() == 1
-    
-    # test isEmpty method again
-    assert deque.isEmpty() == True
+    while i < len(operations):
+        op = operations[i]
+        
+        if op == "isEmpty":
+            results.append(my_deque.isEmpty())
+        elif op == "append":
+            # Next item in the list is the value to append
+            value = operations[i + 1]
+            my_deque.append(value)
+            results.append(None)
+            i += 1  # Increment index to skip the value we just processed
+        elif op == "appendleft" or op == "appendLeft":
+            # Next item in the list is the value to appendleft
+            value = operations[i + 1]
+            my_deque.appendleft(value)
+            results.append(None)
+            i += 1  # Increment index to skip the value we just processed
+        elif op == "pop":
+            results.append(my_deque.pop())
+        elif op == "popleft":
+            results.append(my_deque.popleft())
+        elif op.lower() == "popleft":
+            results.append(my_deque.popleft())
 
-# call the test_deque function
-test_deque()
-print(test_deque(["isEmpty", "append", 1, "isEmpty"]))
+        
+        i += 1  # Increment to process the next operation
+
+    return results
+
+# Test the function with your input
+print(test_deque(["appendLeft", 1, "popLeft", "appendLeft", 2, "popLeft"]
+)) 
+
+my_deque = MyDeque()
+print(my_deque.isEmpty()) # Expected: True
+my_deque.appendleft(1)
+print(my_deque.isEmpty()) # Expected: False
