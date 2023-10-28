@@ -17,3 +17,5 @@ class Solution:
                 r = m - 1
             else:
                 return m
+# Time: O(logN)
+# Space: O(1)
