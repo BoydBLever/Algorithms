@@ -31,8 +31,8 @@ class TreeMap:
                         break
                     else:
                         current = current.right
-                else:  # key == current.key
-                    current.val = val  # Update the value if key already exists
+                else:
+                    current.val = val
                     break
         self.size += 1
 
@@ -45,15 +45,19 @@ class TreeMap:
                 current = current.right
             else:
                 return current.val
-        return None  # If key not found
+        return -1
 
     def getMin(self) -> int:
+        if self.root is None:
+            return -1
         current = self.root
         while current.left is not None:
             current = current.left
         return current.val
 
     def getMax(self) -> int:
+        if self.root is None:
+            return -1
         current = self.root
         while current.right is not None:
             current = current.right
