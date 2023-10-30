@@ -25,4 +25,4 @@ class Solution:
                 res.append(rightSide.val)
         return res
     # TC: O(n) - n is the number of nodes in the tree
-    # SC: O(n) - n is the number of nodes in the tree
+    # SC: O(n)  
