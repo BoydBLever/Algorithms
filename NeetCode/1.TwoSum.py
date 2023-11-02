@@ -10,7 +10,9 @@ class Solution:
         #         return [nums.index(target - nums[i]), i]
         #     hashset.add(nums[i])
         # return []
-        
+        #time complexity: O(n)
+        #space complexity: O(n)
+
         #Solution 2
         hashmap = {}
         for i in range(len(nums)):
@@ -18,8 +20,18 @@ class Solution:
                 return [hashmap[target - nums[i]], i]
             hashmap[nums[i]] = i
         return []
-#time complexity: O(n)
-#space complexity: O(n)
+        #time complexity: O(n)
+        #space complexity: O(n)
+
+        # Solution 3 - NeetCode
+        # prevMap = {} # val : index
+        # for i, n in enumerate(nums):
+        #     diff = target - n 
+        #     if diff in prevMap:
+        #         return [prevMap[diff], i]
+        #     prevMap[n] = i
+        # return []
+
 #test processing function
 if __name__ == '__main__':
     nums = [2,7,11,15] 
