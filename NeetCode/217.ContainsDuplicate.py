@@ -1,3 +1,5 @@
+# https://leetcode.com/problems/contains-duplicate/
+# HashSet contains unique elements and HashMap, HashTable contains unique keys.
 from typing import List
 
 class Solution:
@@ -12,6 +14,8 @@ class Solution:
                 return True
             hashset.add(n)
         return False
+#time complexity: O(n)
+#space complexity: O(n)
     
 #test processing function
 if __name__ == '__main__':
