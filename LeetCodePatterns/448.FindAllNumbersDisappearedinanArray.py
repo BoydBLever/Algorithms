@@ -7,3 +7,5 @@ class Solution:
                 nums[index] *= -1
         
         return [i + 1 for i in range(len(nums)) if nums[i] > 0]
+# Time Complexity: O(n)
+# Space Complexity: O(1)
