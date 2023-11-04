@@ -17,3 +17,16 @@ class Solution:
         # The remaining number in seen is the missing number
         # As there's only one number left, you can return it directly
         return seen.pop()
+    # Time complexity: O(n)
+    # Space complexity: O(n)
+    
+    # Solution 2: using bitwise operator XOR
+    # class Solution:
+    # def missingNumber(self, nums: [int]) -> int:
+    #     n = len(nums)
+    #     missing = n
+    #     for i, num in enumerate(nums):
+    #         missing ^= i ^ num
+    #     return missing
+    # Time complexity: O(n)
+    # Space complexity: O(1)
