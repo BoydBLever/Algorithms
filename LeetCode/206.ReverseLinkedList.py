@@ -26,9 +26,6 @@ class Solution:
         # Prev will be at the new head of the reversed list
         return prev
 
-
-
-
 #Neetcode solution
     # def reverseList(self, head: Optional[ListNode]) -> Optional[ListNode]:
     #     #iterative solution
