@@ -8,19 +8,27 @@ class ListNode:
 
 class Solution:
     def reverseList(self, head: Optional[ListNode]) -> Optional[ListNode]:
-        # Initialize previous, current, and next pointers
+        # Initialize three pointers
+        # previous, current, and next
         prev = None
         curr = head
         
-        # Traverse the list
+        # Iterate through the list, with cur as the iterator
         while curr is not None:
-            next = curr.next  # Store next node
-            curr.next = prev  # Reverse current node's pointer
-            prev = curr  # Move to next node
+            # Temporarily store the next node
+            next = curr.next
+            # Set curr.next to prev to reverse the pointer
+            curr.next = prev
+            # Advance the pointers one step forward
+            prev = curr
             curr = next
             
-        # Now, prev is pointing to the reversed list's head
+        # Prev will be at the new head of the reversed list
         return prev
+
+
+
+
 #Neetcode solution
     # def reverseList(self, head: Optional[ListNode]) -> Optional[ListNode]:
     #     #iterative solution
