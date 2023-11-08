@@ -17,7 +17,7 @@ class Solution:
                 slow.next = prev
                 prev = slow
                 slow = temp
-            # 3. compare the first and second half nodes
+            # 3. compare the first and second half
             while prev:
                 if prev.val != head.val:
                     return False

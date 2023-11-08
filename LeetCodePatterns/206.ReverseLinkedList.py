@@ -30,5 +30,4 @@ class Solution:
 
     # The reversal process is illustrated below:
     # Original list: 1 -> 2 -> 3 -> 4 -> 5 -> None
-    # Reversed list: None <- 1 <- 2 <- 3 <- 4 <- 5
-    
+    # Reversed List: 5 -> 4 -> 3 -> 2 -> 1 -> None
