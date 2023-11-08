@@ -20,5 +20,6 @@ class Solution:
                 return False
             fast = fast.next.next
             slow = slow.next
-        # if slow and fast are pointing to the same node, there is a cycle; return True.
+        # If slow and fast are pointing to the same node, there is a cycle; return True. This means the rabbit caught up to the tortoise.
+        # This solution uses Floyd's Cycle-Finding Algorithm and is an efficient way to find a cycle in a linked list.
         return True
