@@ -21,4 +21,20 @@ class Solution:
         return prev
     
 # Recursive solution: T O(N) S O(N)
-# The best way to think about a recursive problem, is to break it down into recursive problems.
+# The best way to think about a recursive problem, is to break it down into recursive problems. Instead of reversing the entire linked list, I'm going to reverse the remainder of the linked list. Everything except 1. The new head is going to be 2. Let's take it even further. Just reverse the 3. How do we do that? Take the next point and set it to previous? Not really. We are going to take the pointer on three pointing at null. We are going to pop back up out of our recursive call. Since we are at 2, we can access 3. The next pointer on 3 is going to be set to 2, and the next pointer on 2 is going to be set to Null. We did our job of reversing these two nodes. Now we can pop back up to 1. The next pointer on 1 is going to be set to null, and the next pointer on 2 is going to be set to 1. And we are done. We have reversed the linked list.
+
+class Solution:
+    def reverseList(self, head: Optional[ListNode]) -> Optional[ListNode]:
+        if not head:
+            return None
+        
+        newHead = head
+        if head.next:
+            newHead = self.reverseList(head.next)
+            head.next.next = head
+        head.next = None
+
+        return newHead
+    
+    # -> 1 
+    # Try running through the code with link list size 1, size 2, etc. Use pen and paper, draw and picture.
