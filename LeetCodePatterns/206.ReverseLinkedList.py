@@ -29,5 +29,5 @@ class Solution:
     # Reversal process: we are modifying the next pointers of each node in the original list so that they point to the previous node instead, effectively reversing the direction of the list. This is done 1 node at a time, and at each step, only one pointer is changed. 
 
     # The reversal process is illustrated below:
-    # Original list: 1 -> 2 -> 3 -> 4 -> 5 -> None
-    # Reversed List: 5 -> 4 -> 3 -> 2 -> 1 -> None
+    # Original list: 1 -> 2 -> 3 -> 4 -> 5 -> NULL
+    # Reversed List: 5 -> 4 -> 3 -> 2 -> 1 -> NULL
