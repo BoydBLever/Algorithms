@@ -27,5 +27,4 @@ class Solution:
     #   7    2        1
     # targetSum = 22
     # Output: True because 5->4->11->2 sums to 22
-    # Here's how the recursive calls in the algorithm would process this:
-    # 1. First Call: hasPathSum(root=5, targetSum=22)
+    # It's the recursive calls that identify the path. The base case is when the root is None, which means that the path doesn't exist.
