@@ -1,15 +1,20 @@
 class Solution:
     def maxAreaOfIsland(self, grid: List[List[int]]) -> int:
-        def dfs(i, j):
-            if i < 0 or j < 0 or i >= len(grid) or j >= len(grid[0]):
+        def dfs(r, c):
+            # base case
+            if r < 0 or c < 0 or r >= len(grid) or c >= len(grid[0]):
                 return 0
-            if grid[i][j] == 0:
+    
+            if grid[r][c] == 0:
                 return 0
-            grid[i][j] = 0
-            return 1 + dfs(i-1, j) + dfs(i+1, j) + dfs(i, j-1) + dfs(i, j+1)
+            
+            grid[r][c] = 0
+            return 1 + dfs(r-1, c) + dfs(r+1, c) + dfs(r, c-1) + dfs(r, c+1)
         
         max_area = 0
-        for i in range(len(grid)):
-            for j in range(len(grid[0])):
-                max_area = max(max_area, dfs(i, j))
+        # Visit every single position in the grid. Let's iterate through each row and column.
+        for r in range(len(grid)):
+            for c in range(len(grid[0])):
+                # If we find a 1, then we have found an island. Let's DFS from that position.
+                max_area = max(max_area, dfs(r, c))
         return max_area
