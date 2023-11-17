@@ -23,3 +23,16 @@ class Solution:
                 return True
             else:
                 return self.isSubtree(root.left, subRoot) or self.isSubtree(root.right, subRoot)
+
+# Optimized with serialization
+class Solution:
+    def isSubtree(self, root: Optional[TreeNode], subRoot: Optional[TreeNode]) -> bool:
+        def serialize(node):
+            if not node:
+                return "None,"
+            return "Node(" + str(node.val) + ")," + serialize(node.left) + serialize(node.right)
+
+        rootStr = serialize(root)
+        subRootStr = serialize(subRoot)
+
+        return subRootStr in rootStr
