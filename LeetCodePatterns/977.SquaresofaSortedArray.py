@@ -2,7 +2,7 @@ class Solution:
     def sortedSquares(self, nums: List[int]) -> List[int]:
     # Brute Force
         return sorted([i**2 for i in nums])
-    
+    # Brute Force Time complexity: O(nlogn) Space complexity: O(n)
     # Two Pointer
     def sortedSquares(self, nums: List[int]) -> List[int]:
         res = [0] * len(nums)
@@ -18,4 +18,5 @@ class Solution:
                 right -= 1
             insert_pos -= 1
 
-        return res                             
+        return res       
+    # Two Pointer Time complexity: O(n) Space complexity: O(n)                      
