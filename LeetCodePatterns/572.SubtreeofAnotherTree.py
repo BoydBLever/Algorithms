@@ -40,6 +40,7 @@ class Solution:
 # Remember the purpose of this algorithm is to check if subRoot is a subtree of root. Time complexity is O(m*n), where m is the number of nodes in root and n is the number of nodes in subRoot. Space complexity is O(m+n).    
 # DFS Solution
 class Solution:
+    # The 'isSubtree' function is designed to determine whether one binary tree ('subRoot') is a subtree of another binary tree ('root').
     def isSubtree(self, root: Optional[TreeNode], subRoot: Optional[TreeNode]) -> bool:
         # First, check if subRoot is None. A 'None' tree is a subtree of any tree, so it returns True in this case.
         if not subRoot:
@@ -47,7 +48,7 @@ class Solution:
         # if root is None, then subRoot can't be a subtree of root, so it returns False.
         if not root:
             return False
-        # Then it check if the tree rooted at root is the same as subRoot using the isSameTree helper function. If they are the same, it returns True.
+        # The isSameTree method is a DFS implementation that compares two trees. It checks if the current nodes are the same and then recursively checks the left and right children.
         if self.isSameTree(root, subRoot):
             return True
         # If not, it recursively checks whether subRoot is a subtree of either the left or right subtree of root.
@@ -66,12 +67,14 @@ class Solution:
         # If their values are the same, it recursively checks whether their left and right subtrees are identical.
         return self.isSameTree(s.left, t.left) and self.isSameTree(s.right, t.right)
     
-    # Binary Tree
+    # Binary Tree in level order
     # [3,4,5,1,2,null,null,null,null,0]
     #            3
     #           / \
     #          4   5
     #         / \
     #        1   2
-    #       /           
-    #      0    
+    #           /
+    #         0    
+    # subRoot = [4,1,2]
+    # Expected output: False
