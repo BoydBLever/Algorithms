@@ -1,29 +1,28 @@
-class Solution:
+# Credits to udhav
+class Solution(object):
     def maximumXorProduct(self, a: int, b: int, n: int) -> int:
-        # The strategy is to set the highest bits of the result of a XOR x and b XOR x.
-        # To maximize the product, we want to set the highest bit possible in the result of a XOR x.
-        # Since x is less than 2^n, the highest bit we can affect is the n-1 th bit.
-        # We should set this bit if it's not already set in a or b.
-        # Then, for each bit position from n-1 down to 0, if the bit is not set in a or b, we set it in x.
-        # Initialize x to 0
-        x = 0
-        # Iterate over each bit position
-        for i in range(n - 1, -1, -1):
-            # Check if the bit is not set in both a and b
-            if not (a & (1 << i)) or not (b & (1 << i)):
-                # Set this bit in x
-                x |= (1 << i)
-        
-        # Calculate the product
-        product = (a ^ x) * (b ^ x)
-        
-        # Since the answer may be too large, return it modulo 10^9 + 7
-        return product % (10**9 + 7)
+        mod = (10 ** 9) + 7
 
-# Create an instance of the Solution class
-sol = Solution()
+        for index in range(n - 1, -1, -1): # msb -> lsb
+            mask = (1 << index)
+            a_bit, b_bit = (a & mask), (b & mask)
 
-# Test the method with the provided examples
-print(sol.maximumXorProduct(12, 5, 4)) # Expected output: 98
-print(sol.maximumXorProduct(6, 7, 5))  # Expected output: 930
-print(sol.maximumXorProduct(1, 6, 3))  # Expected output: 12
+            # if both bits are 1, then keep them as is
+            if a_bit and b_bit:
+                continue
+            # if both bits are 0, then make them 1 for max product
+            elif not a_bit and not b_bit:
+                a |= mask
+                b |= mask
+            else: # one num has 1 while other num has 0
+            # as we want both nums to be close to each other, reduce big num by xor mask and increase small num by or mask
+                if a_bit and a > b:
+                    a ^= mask
+                    b |= mask
+                elif b_bit and b > a:
+                    a |= mask
+                    b ^= mask
+
+        a %= mod
+        b %= mod
+        return (a * b) % mod
