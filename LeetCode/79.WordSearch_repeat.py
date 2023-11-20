@@ -10,15 +10,15 @@ class Solution:
             board[r][c] = '#'  # Marking the cell as visited
 
             found = (backtrack(board, word, index + 1, r + 1, c) or
-                     backtrack(board, word, index + 1, r - 1, c) or
-                     backtrack(board, word, index + 1, r, c + 1) or
-                     backtrack(board, word, index + 1, r, c - 1))
+                    backtrack(board, word, index + 1, r - 1, c) or
+                    backtrack(board, word, index + 1, r, c + 1) or
+                    backtrack(board, word, index + 1, r, c - 1))
 
             board[r][c] = temp  # Restore the cell's original value (backtrack)
             return found
         
-        for i in range(len(board)):
-            for j in range(len(board[0])):
-               if board[i][j] == word[0] and backtrack(board, word, 0, i, j):
-                   return True
+        for r in range(len(board)):
+            for c in range(len(board[0])):
+                if board[r][c] == word[0] and backtrack(board, word, 0, r, c):
+                    return True
         return False
