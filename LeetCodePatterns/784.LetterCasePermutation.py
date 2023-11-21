@@ -15,3 +15,8 @@ class Solution:
 
         backtrack("", s, 0, result)
         return result
+    
+# s = "a1b2" (possible outputs: ["a1b2", "a1B2", "A1b2", "A1B2"])
+# How def backtrack works:
+# backtrack is alled with an empty string, "", the original string "a1b", the starting index 0, and an empty list result.
+
