@@ -4,6 +4,11 @@ class Solution:
         res = []
         
         def backtrack(start, path):
+            # Early pruning: if the remaining elements plus current path size < k, no need to proceed
+            if len(path) + (n - start + 1) < k:
+                return
+            if len(path) + (n - start + 1) < k:
+                return
             # If the path contains 'k' elements, add it to the result
             if len(path) == k:
                 res.append(path.copy())
