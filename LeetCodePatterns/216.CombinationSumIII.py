@@ -3,6 +3,7 @@ class Solution:
     def combinationSum3(self, k: int, n: int) -> List[List[int]]:
         def backtrack(start, path, remaining):
             # Check if the current combination is valid
+            # remaining == 0 means we have reached the target sum
             if len(path) == k and remaining == 0:
                 res.append(path.copy())
                 return
@@ -29,3 +30,13 @@ class Solution:
 #       /    |    \
 #   (end)  (end)  [2,4]
 #                 (end)
+
+# The backtrack function takes the current starting number (start), the current path (path), and the remaining sum needed (remaining).
+
+# If the length of path is equal to k and the remaining sum is 0, it means we've found a valid combination. This combination is added to the result list res.
+
+# If the length of path exceeds k or if the remaining sum becomes negative, we return early as this path cannot lead to a valid solution.
+
+# We iterate over the range from start to 9, adding each number to path, and calling backtrack recursively with the updated remaining sum.
+
+# After exploring each path, we remove the last element added to path (backtracking) to try other possibilities.
