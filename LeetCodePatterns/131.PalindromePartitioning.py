@@ -70,3 +70,14 @@ class Solution:
 #       "a|a" "a|ab" "aa|b"   
 #        /       X      |
 #    "a|a|b"           "aa|b"
+
+# Decision Tree for s = "bba"
+#              ""
+#               |
+#              "b"             
+#             /   \
+#         "b"     "bb"         
+#        /   \      \
+#     "b|b" "b|ba" "bb|a"  "bba"
+#      /      X     /        X
+# "b|b|a"        "bb|a"
