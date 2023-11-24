@@ -59,3 +59,14 @@ class Solution:
 #        ("a", "a") ("aa")     (Two choices: Partition after 'a' or don't)
 #          /          |
 # ("a", "a", "b")  ("aa", "b") (For each choice, continue partitioning or not)
+
+# Another Completed Decision Tree for s = "aab"
+#              ""
+#               |
+#              "a"             
+#             /   \
+#           "a"   "aa"         
+#          /   \      \
+#       "a|a" "a|ab" "aa|b"   
+#        /       X      |
+#    "a|a|b"           "aa|b"
