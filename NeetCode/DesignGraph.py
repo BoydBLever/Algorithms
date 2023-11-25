@@ -16,12 +16,15 @@ class Graph:
         return False
 
     def hasPath(self, src: int, dst: int) -> bool:
-        if src not in self.vertices or dst not in self.vertices:
-            return False
-        if src == dst:
-            return True
-        for edge in self.edges:
-            if edge[0] == src:
-                if self.hasPath(edge[1], dst):
-                    return True
-        return False
+        visited = set()
+        return self._dfs(src, dst, visited)
+
+    def _dfs(self, src: int, dst: int, visited: set) -> bool:
+            if src == dst:
+                return True
+            visited.add(src)
+            for neighbor in self.adj_list.get(src, []):
+                if neighbor not in visited:
+                    if self._dfs(neighbor, dst, visited):
+                        return True
+            return False   
