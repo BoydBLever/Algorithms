@@ -24,3 +24,17 @@ class Solution:
 #             [1,0]          [0,2]     (Decision at House 2: Must skip if robbed House 1)
 #             /   \            |
 #         [1,0,3] [1,0,0]    [0,2,0]   (Decision at House 3)
+
+# Runtime optimized solution
+class Solution:
+    def rob(self, nums: List[int]) -> int:
+        if len(nums) == 1:
+            return nums[0]
+
+        prev1, prev2 = nums[0], max(nums[0], nums[1])
+
+        for i in range(2, len(nums)):
+            current = max(prev1 + nums[i], prev2)
+            prev1, prev2 = prev2, current
+
+        return prev2
