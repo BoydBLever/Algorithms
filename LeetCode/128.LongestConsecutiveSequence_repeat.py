@@ -3,7 +3,7 @@ class Solution:
         # 1. Hash Set Creation
         num_set = set(nums)
         max_count = 0
-        # 2. Set Iteration: how to determine if a number is the start of a sequence?
+        # 2. Set Iteration: determine if a number is the start of a sequence, if num - 1 is not in the set
         for num in num_set:
             # Check if 'num' is the start of a sequence
             if (num - 1) not in num_set:
