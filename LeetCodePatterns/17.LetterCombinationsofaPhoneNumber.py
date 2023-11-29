@@ -1,30 +1,31 @@
 # https://leetcode.com/problems/letter-combinations-of-a-phone-number/description/
-class Solution:
-    def letterCombinations(self, digits: str) -> List[str]:
-        res = []
-        if not digits:
-            return res
-        part = []
-        self.dfs(digits, 0, part, res)
-        return res
+# class Solution:
+#     def letterCombinations(self, digits: str) -> List[str]:
+#         res = []
+#         if not digits:
+#             return res
+#         part = []
+#         self.dfs(digits, 0, part, res)
+#         return res
     
-    def dfs(self, digits, i, part, res):
-        # base case
-        if i >= len(digits):
-            res.append("".join(part))
-            return
-        for c in self.getLetters(digits[i]):
-            part.append(c)
-            self.dfs(digits, i + 1, part, res)
-            part.pop()
+#     def dfs(self, digits, i, part, res):
+#         # base case
+#         if i >= len(digits):
+#             res.append("".join(part))
+#             return
+#         # recursive exploration
+#         for c in self.getLetters(digits[i]):
+#             part.append(c) # add the current letter to the combination
+#             self.dfs(digits, i + 1, part, res) # Recursive call for the next digit
+#             part.pop() # backtrack
     
-    def getLetters(self, digit):
-        digit_to_letters = {
-            "2": "abc", "3": "def", "4": "ghi",
-            "5": "jkl", "6": "mno", "7": "pqrs",
-            "8": "tuv", "9": "wxyz"
-        }
-        return digit_to_letters.get(digit, "")
+#     def getLetters(self, digit):
+#         digit_to_letters = {
+#             "2": "abc", "3": "def", "4": "ghi",
+#             "5": "jkl", "6": "mno", "7": "pqrs",
+#             "8": "tuv", "9": "wxyz"
+#         }
+#         return digit_to_letters.get(digit, "")
     # Time Complexity: O(3^n * 4^m), where n is the number of digits in the input that maps to 3 letters (e.g. 2, 3, 4, 5, 6, 8) and m is the number of digits in the input that maps to 4 letters (e.g. 7, 9), and n + m is the total number digits in the input.
     # Space Complexity: O(3^n * 4^m), since one has to keep 3^n * 4^m solutions.
 
@@ -53,3 +54,51 @@ class Solution:
 # 7. Backtracking: After exploring one branch (letter), we backtrack by removing the last letter from part before the next iteration of the loop. This prepares part for the next letter in the current digit.
 # Can we code the backtracking step that happens after the recursive call in the dfs function?
 # part.pop()
+
+# NeetCode solution
+from typing import List
+class Solution:
+    def letterCombinations(self, digits: str) -> List[str]:
+        res = []
+        digitToChar = { "2": "abc",
+                        "3": "def",
+                        "4": "ghi",
+                        "5": "jkl",
+                        "6": "mno",
+                        "7": "pqrs",
+                        "8": "tuv",
+                        "9": "wxyz" }
+        
+        def backtrack(i, curStr):
+            if len(curStr) == len(digits):
+                res.append(curStr)
+                return
+            for c in digitToChar[digits[i]]:
+                print("i:", i, "| Char: ", c, "| curStr: ", curStr)
+                backtrack(i + 1, curStr + c)
+        
+        if digits:
+            backtrack(0, "")
+        return res
+    
+# Test function
+digits = "23"
+s = Solution()
+result = s.letterCombinations(digits)
+print(result)
+
+# Output. Note how after each path is exhausted there is a return to previous level (i = 0); this for loop has recursive control flow. Recursion continues until the base case is reached when a combination's length matches the input length, illustrating how control flow can be directed deeper into the function call,
+
+i: 0 | Char:  a | curStr:    -> backtrack(0, "")
+i: 1 | Char:  d | curStr:  a -> backtrack(1, "a")
+i: 1 | Char:  e | curStr:  a -> backtrack(1, "a")
+i: 1 | Char:  f | curStr:  a -> backtrack(1, "a")
+i: 0 | Char:  b | curStr:    -> backtrack(0, "")
+i: 1 | Char:  d | curStr:  b -> backtrack(1, "b")
+i: 1 | Char:  e | curStr:  b -> backtrack(1, "b")
+i: 1 | Char:  f | curStr:  b -> backtrack(1, "b")
+i: 0 | Char:  c | curStr:    -> backtrack(0, "")
+i: 1 | Char:  d | curStr:  c -> backtrack(1, "c")
+i: 1 | Char:  e | curStr:  c -> backtrack(1, "c")
+i: 1 | Char:  f | curStr:  c -> backtrack(1, "c")
+['ad', 'ae', 'af', 'bd', 'be', 'bf', 'cd', 'ce', 'cf']
