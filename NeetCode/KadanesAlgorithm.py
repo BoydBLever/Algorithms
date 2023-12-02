@@ -11,7 +11,7 @@ def bruteForce(nums):
 
 # Kadane's Algorithm: O(n)
 def kadanes(nums):
-    maxSum = nums[0]
+    maxSum = nums[0] # float('-inf')
     curSum = 0
 
     for n in nums:
