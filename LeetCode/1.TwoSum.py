@@ -13,3 +13,5 @@ class Solution:
                 return [prevMap[diff], i]
             prevMap[n] = i
         return
+    
+# Other possible approach: brute force, hash map, two pointers.
